@@ -59,7 +59,7 @@
                     var sequenceId = sequenceDescription.split(" ")[0];
                 }
                 let species = sequenceDescription.split("[").slice(-1)[0].split("]")[0];
-                let speciesByWord = species[1:]; // .split(" ");
+                let speciesByWord = species.slice(1); // .split(" ");
                 species = speciesByWord[0][0] + ". " + speciesByWord[1];
                 var link = this.extractLinkFromId(sequenceId);
                 this.sequenceDetails.push({
