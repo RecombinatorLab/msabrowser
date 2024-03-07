@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <h1>MSABrowser | Template</h1>
+    <h1>MSABrowser | Entrez ID 1 Aligned to 117586</h1>
     <article>
         <br> For example, you can view a particular <a href="javascript:void(0)" onclick="viewer.scrollToPosition(1,5)"> variation on a species</a> or by clicking the link.
     </article>
@@ -47,9 +47,8 @@
                 'source': 'Modification',
                 'type': Alteration.Modification
             },];
-
-        $.get("https://cdn.jsdelivr.net/gh/msabrowser/msabrowser@v1.0//examples/sample_files/TUBA1A.txt", (fasta) => {
-
+        
+        $.get("https://cdn.jsdelivr.net/gh/RecombinatorLab/msabrowser@master/examples/sample_files/1;117586.txt", (fasta) => {
             viewer = new MSABrowser({
                 id: "MSABrowserDemo",
                 msa: MSAProcessor({
