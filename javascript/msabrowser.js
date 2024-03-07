@@ -61,7 +61,7 @@
                 let species = sequenceDescription.split("[").slice(-1)[0].split("]")[0];
                 // get everything after 1st char as the suffix of "m. musculus"
                 let speciesByWord = species.slice(1); // .split(" ");
-                species = speciesByWord[0][0] + ". " + speciesByWord[1];
+                species = speciesByWord[0][0] + ". " + speciesByWord; // speciesByWord[1];
                 var link = this.extractLinkFromId(sequenceId);
                 this.sequenceDetails.push({
                     link: link,
