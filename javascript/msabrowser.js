@@ -56,7 +56,7 @@
                 if (sequenceDescription.substring(0, 2) == "gi") {
                     var sequenceId = sequenceDescription.split("|")[3];
                 } else {
-                    var sequenceId = sequenceDescription.split(" ")[0];
+                    var sequenceId = sequenceDescription.split(" ")[0];alterations
                 }
                 let species = sequenceDescription.split("[").slice(-1)[0].split("]")[0];
                 // get everything after 1st char as the suffix of "m. musculus"
