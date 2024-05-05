@@ -75,21 +75,23 @@
 
             viewer.export("MSA_export.fasta");
         });
-
-        $.get("https://cdn.jsdelivr.net/gh/RecombinatorLab/msabrowser@master/examples/sample_files/29127;26934.txt", (fasta) => {
-            viewer = new MSABrowser({
-                id: "MSABrowserDemo",
-                msa: MSAProcessor({
-                    fasta: fasta,
-                    hasConsensus: true
-                }),
-                annotations: annotations,
-                alterations: alterations,
-                colorSchema: "clustal",
-            });
-
-        });
     </script>
+<script>
+    $.get("https://cdn.jsdelivr.net/gh/RecombinatorLab/msabrowser@master/examples/sample_files/29127;26934.txt", (fasta) => {
+        viewer = new MSABrowser({
+            id: "MSABrowserDemo",
+            msa: MSAProcessor({
+                fasta: fasta,
+                hasConsensus: true
+            }),
+            annotations: annotations,
+            alterations: alterations,
+            colorSchema: "clustal",
+        });
+
+        viewer.export("MSA_export.fasta");
+    });
+</script>
 </body>
 
 </html>
