@@ -79,7 +79,44 @@
 </body>
 
 <body>
-    <script>
+    <h1>MSABrowser | H. sapien RACGAP1 (29127) aligned to M. musculus (26934)</h1>
+    <script type="text/javascript" charset="utf-8">
+        var viewer;
+        // top bar above alignments
+        var annotations = [
+            {
+                source: "Annotations #1",
+                data: [{
+                    'annotation_id': 'Defined Sequence Interval',
+                    'annotation_name': 'Defined Sequence Interval',
+                    'annotation_external_link': 'https://msabrowser.github.io/',
+                    'annotation_start_point': 8,
+                    'annotation_end_point': 28
+                }]
+            }
+        ];
+        // embedded in alignments, SNPs
+        var alterations = [
+            {
+                'sequenceIndex': 1,
+                'position': 5,
+                'note': 'A modification note with a red asterisk might be detailed here using <a href="https://msabrowser.github.io/"> extra </a> information.'
+                    + '<br><div style="background:red">Special box</div>'  
+                    + '<br><p style="color: blue;">P tag is also used here.</p>'  
+                    + '<br> <img height=65 width=230 src="https://user-images.githubusercontent.com/65191506/81839302-06123400-9550-11ea-92d2-ac904ccd32c6.png"> ',
+                'source': 'Modification',
+                'type': Alteration.Modification
+            },{sequenceIndex: 1,
+                position: 1,
+                note: "Variation ID: 159103"
+                + "<br> rsNumber: rs587783937" // ignore
+                + "<br> p.Met1Ile "
+                + "<br> single nucleotide variant" // ignore
+                + "<br> Pathogenic"
+                + "<br>Cornelia de Lange syndrome 1",
+                source: "ClinVar"
+            },];
+            
         $.get("https://cdn.jsdelivr.net/gh/RecombinatorLab/msabrowser@master/examples/sample_files/29127;26934.txt", (fasta) => {
             viewer = new MSABrowser({
                 id: "MSABrowserDemo",
