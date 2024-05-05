@@ -661,7 +661,24 @@
             });
         })
     }
+    
+    MSABrowser.prototype.export = function(fileName) {
+        if (fileName != "") { var fileName = "MSA_export1.fasta" }
+        var fileContent = this.msa.fasta;
+        var hrefTag = "data:text/plain;charset=UTF-8," + encodeURIComponent(fileContent);
+        this.mainDiv.find('.bottom-panel').append('<a class="msa-button export-button" href="' + hrefTag + '" download="' + fileName + '">Download as FASTA</a>');
+        this.mainDiv.find('.bottom-panel').append('<a href="javascript:void(0)" class="msa-button ss-button">Save as PNG</a>');
 
+        this.mainDiv.find('.ss-button').click(() => {
+            this.mainDiv.find('.ss-button').prepend('<img src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/fancybox_loading.gif" style="height:18px"> ')
+
+            html2canvas(this.mainDiv.find('.scroll-container')[0], { height: this.mainDiv.height(), width: this.mainDiv.width() }).then(canvas => {
+                console.log(canvas);
+                saveAs(canvas.toDataURL(), 'msa-browser-image.png');
+                this.mainDiv.find('.ss-button').find('img').remove();
+            });
+        })
+    }
     MSABrowser.prototype.scrollToPosition = function(species, position) {
 
         this.highlightPosition(species - 1, position - 1)
