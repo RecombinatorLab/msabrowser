@@ -73,7 +73,7 @@
                 colorSchema: "clustal",
             });
 
-            viewer.export("MSA_export.fasta");
+            
         });
     </script>
 </body>
@@ -116,7 +116,7 @@
                 + "<br>Cornelia de Lange syndrome 1",
                 source: "ClinVar"
             },];
-            
+
         $.get("https://cdn.jsdelivr.net/gh/RecombinatorLab/msabrowser@master/examples/sample_files/29127;26934.txt", (fasta) => {
             viewer = new MSABrowser({
                 id: "MSABrowserDemo",
