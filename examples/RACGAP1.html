@@ -14,10 +14,10 @@
 </head>
 
 <body>
-    <h1>MSABrowser | H. sapienEntrez ID 29127 Aligned to C. elegans 176815</h1>
-    <article>
+    <h1>MSABrowser | H. sapien RACGAP1 (29127) aligned to C. elegans (176815)</h1>
+    <!-- <article>
         <br> For example, you can view a particular <a href="javascript:void(0)" onclick="viewer.scrollToPosition(1,5)"> variation on a species</a> or by clicking the link.
-    </article>
+    </article> -->
 
     <!-- MSABrowser Demo -->
     <section id="MSABrowserDemo"></section>
@@ -75,6 +75,19 @@
 
             viewer.export("MSA_export.fasta");
 
+            $.get("https://cdn.jsdelivr.net/gh/RecombinatorLab/msabrowser@master/examples/sample_files/29127;176815.txt", (fasta) => {
+                viewer = new MSABrowser({
+                    id: "MSABrowserDemo",
+                    msa: MSAProcessor({
+                        fasta: fasta,
+                        hasConsensus: true
+                    }),
+                    annotations: annotations,
+                    alterations: alterations,
+                    colorSchema: "clustal",
+                });
+    
+                viewer.export("MSA_export.fasta");
         });
     </script>
 </body>
